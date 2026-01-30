@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LockedHQ — Commit. Prove it. Get paid back.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.12);
+      --text-primary: #f5f7fa;
+      --text-secondary: #a0aec0;
+      --accent: #39e29d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, #1c2541 0%, transparent 60%),
+        radial-gradient(1000px 500px at 90% 10%, #14213d 0%, transparent 55%),
+        var(--bg);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, Inter, sans-serif;
+      padding: 32px 16px;
+    }
+    .card {
+      max-width: 720px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 32px 28px 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+    p {
+      margin: 0 0 16px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(57,226,157,0.35);
+      background: rgba(57,226,157,0.1);
+      color: var(--accent);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="pill">iOS app · Coming soon</span>
+    <h1>LockedHQ</h1>
+    <h2>Put real money on your goals.</h2>
+    <p>
+      LockedHQ lets you and your trusted circle lock in cash on habits that matter —
+      show up, hit your streaks, and get your money back when you follow through.
+      No house bets, no odds — just effort.
+    </p>
+    <div class="row">
+      <span class="tag">Accountability that actually hurts to miss</span>
+      <span class="tag">Apple Health verification</span>
+      <span class="tag">Pushup & workout challenges</span>
+    </div>
+    <div class="footer">
+      © <span id="year"></span> LockedHQ · Commit. Prove it. Get paid back.
+    </div>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
