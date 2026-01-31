@@ -1,147 +1,327 @@
-<!-- How it works -->
-<section id="how">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-eyebrow">How it works</div>
-      <h2 class="section-title">Commitments people actually honor.</h2>
-      <p class="section-subtitle">
-        LockedHQ uses real money to turn intentions into follow-through.
-        You don’t bet. You don’t speculate. You commit — or you don’t get paid.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LockedHQ — Commitments people actually honor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LockedHQ uses real money to turn intentions into follow-through. You commit — or you don’t get paid." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #05060f;
+      --bg-soft: #0b0e1d;
+      --border: rgba(255,255,255,0.08);
+      --text: #f5f6ff;
+      --muted: #a3a7c7;
+      --accent: #6c7bff;
+      --accent-strong: #9b8cff;
+      --success: #35d49a;
+      --danger: #ff4d6d;
+      --radius: 16px;
+      --max: 1040px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #121638, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(5,6,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(108,123,255,0.4);
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #05060f;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #fff, #dcdfff, var(--accent-strong));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg-soft);
+      color: var(--text);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #05060f;
+      border: none;
+      box-shadow: 0 18px 40px rgba(108,123,255,0.45);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .sub {
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .grid-3 {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* MONEY */
+    .money {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px solid var(--border);
+      margin-right: 6px;
+      margin-top: 8px;
+    }
+
+    .pill.success { border-color: rgba(53,212,154,0.6); color: #b9ffe6; }
+    .pill.danger { border-color: rgba(255,77,109,0.6); color: #ffd6de; }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .money { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="logo">LockedHQ</div>
+    <a class="cta" href="#">Early Access</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>
+        Commitments<br />
+        <span>with real consequences.</span>
+      </h1>
+      <p>
+        LockedHQ turns intentions into follow-through using real money.
+        You commit to an outcome — and if you don’t follow through, you don’t get paid.
       </p>
-    </div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-number">1</div>
-        <div class="step-title">Create a commitment</div>
-        <div class="step-body">
-          Define the rule, the deadline, and the stake. Showing up, completing a task,
-          or sticking to a plan — you decide what counts.
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <div class="step-title">Lock in money</div>
-        <div class="step-body">
-          Participants put money on the line. Funds are held securely via Stripe
-          while the commitment is active.
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <div class="step-title">Resolve the outcome</div>
-        <div class="step-body">
-          When the commitment ends, funds are distributed based on the rules.
-          LockedHQ takes a small fee only when money is withdrawn.
-        </div>
+      <div class="hero-actions">
+        <button class="btn primary">Join waitlist</button>
+        <button class="btn">How it works</button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Why it works -->
-<section id="why">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-eyebrow">Why it works</div>
-      <h2 class="section-title">Because motivation fades. Consequences don’t.</h2>
-      <p class="section-subtitle">
-        LockedHQ isn’t about rewards or gamification.
-        It works because people behave differently when there’s something real at stake.
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h2>Simple by design.</h2>
+      <p class="sub">
+        No betting. No speculation. No social pressure.
+        Just clear rules, locked funds, and objective outcomes.
       </p>
-    </div>
 
-    <div class="card-grid-3">
-      <div class="card">
-        <div class="card-title">No chasing people</div>
-        <div class="card-body">
-          Money is locked up front. No reminders. No awkward follow-ups.
+      <div class="grid-3">
+        <div class="card">
+          <strong>Create a commitment</strong>
+          <p>Define the rule, deadline, and stake. Showing up, finishing, or abstaining — you decide what counts.</p>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Clear rules</div>
-        <div class="card-body">
-          Everyone agrees to the same outcome before committing. No debates later.
+        <div class="card">
+          <strong>Lock in money</strong>
+          <p>Participants put real money on the line. Funds are held securely via Stripe.</p>
         </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Real accountability</div>
-        <div class="card-body">
-          Social pressure fades. Financial consequences don’t.
+        <div class="card">
+          <strong>Resolve the outcome</strong>
+          <p>When the commitment ends, funds are distributed exactly as agreed.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Money & fees -->
-<section id="money">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-eyebrow">Money &amp; fees</div>
-      <h2 class="section-title">Simple, transparent money flow.</h2>
-      <p class="section-subtitle">
-        LockedHQ only makes money when you successfully withdraw.
-        No subscriptions. No fees just to participate.
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Why it works</div>
+      <h2>Motivation fades. Consequences don’t.</h2>
+      <p class="sub">
+        LockedHQ isn’t gamified and doesn’t rely on reminders.
+        Financial consequences change behavior — reliably.
       </p>
-    </div>
 
-    <div class="money-cols">
-      <div>
-        <strong>Deposits</strong>
-        <ul>
-          <li>Paid by card or Apple Pay</li>
-          <li>Held securely via Stripe</li>
-          <li>No LockedHQ fee on deposits</li>
-        </ul>
-      </div>
-
-      <div>
-        <strong>Withdrawals</strong>
-        <ul>
-          <li>5% platform fee on withdrawal</li>
-          <li>Net amount shown before you confirm</li>
-          <li>Payouts typically take 1–7 business days</li>
-        </ul>
+      <div class="grid-3">
+        <div class="card">
+          <strong>No chasing people</strong>
+          <p>Money is locked up front. No awkward follow-ups or excuses.</p>
+        </div>
+        <div class="card">
+          <strong>Clear outcomes</strong>
+          <p>Everyone agrees to the same rules before committing. No debates later.</p>
+        </div>
+        <div class="card">
+          <strong>Real accountability</strong>
+          <p>Social pressure fades. Financial consequences don’t.</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Money & fees</div>
+      <h2>Transparent money flow.</h2>
+
+      <div class="money">
+        <div>
+          <p class="sub">
+            LockedHQ only makes money when you successfully withdraw.
+            No subscriptions. No participation fees.
+          </p>
+
+          <span class="pill success">Deposits held via Stripe</span>
+          <span class="pill">5% fee on withdrawals only</span>
+          <span class="pill danger">No payout if you fail</span>
+        </div>
+
+        <div class="card">
+          <strong>Withdrawals</strong>
+          <p>
+            Funds typically become available within a few business days
+            after a commitment resolves, depending on Stripe payout timing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 LockedHQ · Built on Stripe · iOS coming soon
   </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-eyebrow">FAQ</div>
-      <h2 class="section-title">Quick answers.</h2>
-    </div>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">Is this gambling?</div>
-        <div class="faq-a">
-          No. LockedHQ is for commitments with predefined outcomes,
-          not chance or odds.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">Who holds the money?</div>
-        <div class="faq-a">
-          Payments are processed and held via Stripe until withdrawal.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-q">How does LockedHQ make money?</div>
-        <div class="faq-a">
-          A 5% fee is taken only when funds are withdrawn.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</footer>
+</body>
+</html>
