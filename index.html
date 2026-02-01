@@ -2,330 +2,365 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>LockedHQ — Commitments people actually honor</title>
-  <link rel="icon" type="image/png" href="/lockedHQ_icon.png">
+  <title>LockedHQ – Commitments with Real Consequences</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="LockedHQ uses real money to turn intentions into follow-through. You commit — or you don’t get paid." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="LockedHQ turns intentions into follow-through with equal, refundable commitment deposits. Create challenges with friends and earn your deposit back by sticking to your goals." />
+  <link rel="icon" type="image/png" href="/lockedHQ_icon.png" />
 
   <style>
-    :root {
-      --bg: #05060f;
-      --bg-soft: #0b0e1d;
-      --border: rgba(255,255,255,0.08);
-      --text: #f5f6ff;
-      --muted: #a3a7c7;
-      --accent: #6c7bff;
-      --accent-strong: #9b8cff;
-      --success: #35d49a;
-      --danger: #ff4d6d;
-      --radius: 16px;
-      --max: 1040px;
-    }
-
+    /* ===== Base ===== */
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top, #121638, var(--bg) 60%);
-      color: var(--text);
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: radial-gradient(circle at top right, #1f233f 0%, #050817 45%, #020310 100%);
+      color: #f9fafb;
     }
 
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(5,6,15,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
+    /* ===== Layout ===== */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .nav {
+    /* ===== Header ===== */
+    header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 14px 0;
+      align-items: center;
+      padding: 18px 0;
     }
 
     .logo {
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      letter-spacing: 0.28em;
       font-size: 13px;
-    }
-
-    .cta {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(108,123,255,0.4);
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #05060f;
-      font-weight: 600;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 90px 0 70px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(90deg, #fff, #dcdfff, var(--accent-strong));
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      background: var(--bg-soft);
-      color: var(--text);
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: #05060f;
-      border: none;
-      box-shadow: 0 18px 40px rgba(108,123,255,0.45);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 70px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .sub {
-      max-width: 560px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .grid-3 {
-      margin-top: 36px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--bg-soft);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-
-    .card strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-    }
-
-    .card p {
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* MONEY */
-    .money {
-      display: grid;
-      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 32px;
-      margin-top: 32px;
+      color: #9ca3af;
     }
 
     .pill {
-      display: inline-block;
-      padding: 6px 12px;
+      padding: 6px 14px;
+      font-size: 12px;
       border-radius: 999px;
-      font-size: 11px;
-      border: 1px solid var(--border);
-      margin-right: 6px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      box-shadow: 0 8px 24px rgba(79,70,229,.6);
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 60px 0 80px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 40px);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: #9ca3af;
+      max-width: 460px;
+      margin-bottom: 20px;
+    }
+
+    .bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .bullets li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #818cf8;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 18px 48px rgba(79,70,229,.7);
+    }
+
+    /* ===== App Card ===== */
+    .card {
+      background: rgba(9,12,30,.92);
+      border-radius: 28px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 30px 70px rgba(0,0,0,.65);
+      backdrop-filter: blur(18px);
+    }
+
+    .tabs {
+      display: inline-flex;
+      background: #0f172a;
+      border-radius: 999px;
+      padding: 4px;
+      margin-bottom: 16px;
+    }
+
+    .tab {
+      padding: 6px 14px;
+      font-size: 12px;
+      border-radius: 999px;
+      color: #9ca3af;
+    }
+
+    .tab.active {
+      background: #fff;
+      color: #020617;
+      font-weight: 600;
+    }
+
+    .field {
+      margin-bottom: 10px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148,163,184,.6);
+      background: #0f172a;
+      color: #f9fafb;
+      font-size: 13px;
+    }
+
+    .submit {
+      width: 100%;
       margin-top: 8px;
+      padding: 12px;
+      border-radius: 16px;
+      border: none;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
     }
 
-    .pill.success { border-color: rgba(53,212,154,0.6); color: #b9ffe6; }
-    .pill.danger { border-color: rgba(255,77,109,0.6); color: #ffd6de; }
+    .note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 10px;
+    }
 
-    /* FOOTER */
+    /* ===== Screenshots ===== */
+    .screens {
+      background: #f9fafb;
+      color: #020617;
+      padding: 70px 0;
+    }
+
+    .screens h2 {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 26px;
+    }
+
+    .screens p {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .shot {
+      text-align: center;
+    }
+
+    .shot img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 30px;
+      box-shadow: 0 24px 56px rgba(15,23,42,.35);
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* ===== How It Works ===== */
+    .how {
+      background: #fff;
+      color: #020617;
+      padding: 70px 0;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .how-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .how-card h3 {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .how-card p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    /* ===== Footer ===== */
     footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.8rem;
+      background: #020617;
+      color: #9ca3af;
+      padding: 24px 0;
+      font-size: 12px;
     }
 
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ===== Responsive ===== */
     @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: 1fr; }
-      .money { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="wrap nav">
-    <div class="logo">LockedHQ</div>
-    <a class="cta" href="#">Early Access</a>
+  <div class="container">
+    <header>
+      <div class="logo">LOCKEDHQ</div>
+      <div class="pill">EARLY ACCESS</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>Commitments with real consequences.</h1>
+        <p>
+          LockedHQ turns intentions into follow-through with equal, refundable commitment deposits.
+          Outcomes depend only on your progress — not luck or chance.
+        </p>
+        <ul class="bullets">
+          <li>Create shared goals with friends</li>
+          <li>Optionally lock in a deposit</li>
+          <li>Earn it back by sticking to the goal</li>
+        </ul>
+        <a class="cta" href="mailto:joeschwartz0@gmail.com?subject=LockedHQ Early Access">
+          Request early access
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="tabs">
+          <div class="tab active">Sign In</div>
+          <div class="tab">Sign Up</div>
+        </div>
+
+        <div class="field">
+          <input disabled placeholder="Email" />
+        </div>
+        <div class="field">
+          <input disabled placeholder="Password" type="password" />
+        </div>
+        <button class="submit" disabled>Sign in (coming soon)</button>
+        <div class="note">Preview of the iOS app experience</div>
+      </div>
+    </section>
   </div>
-</header>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <h1>
-        Commitments<br />
-        <span>with real consequences.</span>
-      </h1>
-      <p>
-        LockedHQ turns intentions into follow-through using real money.
-        You commit to an outcome — and if you don’t follow through, you don’t get paid.
-      </p>
+  <section class="screens">
+    <div class="container">
+      <h2>See LockedHQ in action</h2>
+      <p>Create challenges, track progress, and stay accountable together.</p>
 
-      <div class="hero-actions">
-        <button class="btn primary">Join waitlist</button>
-        <button class="btn">How it works</button>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="eyebrow">How it works</div>
-      <h2>Simple by design.</h2>
-      <p class="sub">
-        No betting. No speculation. No social pressure.
-        Just clear rules, locked funds, and objective outcomes.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <strong>Create a commitment</strong>
-          <p>Define the rule, deadline, and stake. Showing up, finishing, or abstaining — you decide what counts.</p>
+      <div class="grid">
+        <div class="shot">
+          <img src="screens/login.png" />
+          <div class="caption">Sign in and view your challenges</div>
         </div>
-        <div class="card">
-          <strong>Lock in money</strong>
-          <p>Participants put real money on the line. Funds are held securely via Stripe.</p>
+        <div class="shot">
+          <img src="screens/challenges.png" />
+          <div class="caption">Track daily and weekly goals</div>
         </div>
-        <div class="card">
-          <strong>Resolve the outcome</strong>
-          <p>When the commitment ends, funds are distributed exactly as agreed.</p>
+        <div class="shot">
+          <img src="screens/category.png" />
+          <div class="caption">Choose a challenge type</div>
+        </div>
+        <div class="shot">
+          <img src="screens/duration.png" />
+          <div class="caption">Set duration and cadence</div>
+        </div>
+        <div class="shot">
+          <img src="screens/deposit.png" />
+          <div class="caption">Add an optional deposit</div>
+        </div>
+        <div class="shot">
+          <img src="screens/invite.png" />
+          <div class="caption">Invite friends and commit together</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="eyebrow">Why it works</div>
-      <h2>Motivation fades. Consequences don’t.</h2>
-      <p class="sub">
-        LockedHQ isn’t gamified and doesn’t rely on reminders.
-        Financial consequences change behavior — reliably.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <strong>No chasing people</strong>
-          <p>Money is locked up front. No awkward follow-ups or excuses.</p>
-        </div>
-        <div class="card">
-          <strong>Clear outcomes</strong>
-          <p>Everyone agrees to the same rules before committing. No debates later.</p>
-        </div>
-        <div class="card">
-          <strong>Real accountability</strong>
-          <p>Social pressure fades. Financial consequences don’t.</p>
-        </div>
+  <section class="how">
+    <div class="container how-grid">
+      <div class="how-card">
+        <h3>Set a clear goal</h3>
+        <p>Pick a measurable goal like steps, workouts, or routines.</p>
+      </div>
+      <div class="how-card">
+        <h3>Lock in commitment</h3>
+        <p>Everyone can reserve the same refundable deposit.</p>
+      </div>
+      <div class="how-card">
+        <h3>Follow through</h3>
+        <p>Hit the goal to keep your deposit. Accountability is shared.</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="eyebrow">Money & fees</div>
-      <h2>Transparent money flow.</h2>
-
-      <div class="money">
-        <div>
-          <p class="sub">
-            LockedHQ only makes money when you successfully withdraw.
-            No subscriptions. No participation fees.
-          </p>
-
-          <span class="pill success">Deposits held via Stripe</span>
-          <span class="pill">5% fee on withdrawals only</span>
-          <span class="pill danger">No payout if you fail</span>
-        </div>
-
-        <div class="card">
-          <strong>Withdrawals</strong>
-          <p>
-            Funds typically become available within a few business days
-            after a commitment resolves, depending on Stripe payout timing.
-          </p>
-        </div>
-      </div>
+  <footer>
+    <div class="container">
+      <div>© 2026 LockedHQ</div>
+      <a href="/privacypolicy.html">Privacy Policy</a>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    © 2026 LockedHQ · Built on Stripe · iOS coming soon ·
-    <a href="/privacypolicy.html" style="margin-left:8px; color:#6ea8ff;">
-      Privacy Policy
-    </a>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
